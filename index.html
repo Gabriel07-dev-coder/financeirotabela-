@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Financeiro - Dashboard</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #141414;
+            --text-main: #ffffff;
+            --text-secondary: #a0a0a0;
+            --green: #4ade80;
+            --red: #f87171;
+            --blue: #6366f1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 300px 500px 250px;
+            gap: 20px;
+            background: var(--bg-color);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #222;
+        }
+
+        /* Gráfico de Rosca Mock */
+        .chart-container {
+            text-align: center;
+        }
+        .donut-chart {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 15px solid var(--blue);
+            border-top: 15px solid #f472b6;
+            margin: 20px auto;
+        }
+
+        /* Tabela Central */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        td {
+            padding: 12px 0;
+            border-bottom: 1px dashed #333;
+        }
+        .highlight-red { color: var(--red); }
+        .highlight-green { color: var(--green); }
+
+        /* Resumo Inferior */
+        .summary {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        .val-big { font-size: 22px; font-weight: bold; display: block; }
+
+        .btn-edit {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard">
+    <!-- Bloco Esquerdo -->
+    <div class="card chart-container">
+        <h3>Custos fixos</h3>
+        <div class="donut-chart"></div>
+        <div style="text-align: left; font-size: 12px; color: var(--text-secondary);">
+            <p><span style="color:var(--blue)">●</span> Custos fixos</p>
+            <p><span style="color:var(--green)">●</span> Conforto</p>
+            <p><span style="color:yellow">●</span> Metas</p>
+        </div>
+    </div>
+
+    <!-- Bloco Central -->
+    <div class="card">
+        <table>
+            <tr><td>Metas</td><td>R$ 2.250,00</td><td class="highlight-green">0.00%</td></tr>
+            <tr><td>Prazeres</td><td>R$ 1.300,00</td><td class="highlight-green">86.67%</td></tr>
+            <tr><td>Lib. financeira</td><td>R$ 4.000,00</td><td class="highlight-red">106.67%</td></tr>
+            <tr><td>Conhecimento</td><td>R$ 500,00</td><td class="highlight-green">66.67%</td></tr>
+        </table>
+
+        <div class="summary">
+            <div><span class="val-big highlight-green">R$ 12.400,00</span><small>Total gastos</small></div>
+            <div><span class="val-big highlight-red">R$ 15.000,00</span><small>Total a gastar</small></div>
+            <div><span class="val-big">82%</span><small>Utilizado</small></div>
+        </div>
+    </div>
+
+    <!-- Bloco Direito -->
+    <div class="card">
+        <p>Prazeres <span style="float:right">10%</span></p>
+        <p>Lib. financeira <span style="float:right">25%</span></p>
+        <p>Conhecimento <span style="float:right">5%</span></p>
+        <button class="btn-edit">Editar</button>
+    </div>
+</div>
+
+</body>
+</html>
